@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="InovaConnect - Portal de Inovação Acadêmica. Conectando ideias acadêmicas ao mercado real, alinhado à ODS 9 da ONU.">
+    <meta name="keywords" content="inovação, startups, pesquisa, ODS 9, sustentabilidade, tecnologia, academia">
+    <meta name="authors" content="Arthur Morales, Barbarha Monteiro">
+    
+    <title>InovaConnect - Portal de Inovação Acadêmica</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- ============================================
+         HEADER
+    ============================================ -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </span>
+                <span>InovaConnect</span>
+            </a>
+            
+            <button class="menu-toggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================
+         HERO SECTION
+    ============================================ -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Conectando Ideias Acadêmicas ao Mercado Real</h1>
+            <p>Plataforma que une startups acadêmicas, projetos de pesquisa, investidores e empresas para transformar inovação em impacto real.</p>
+            <a href="projetos.html" class="cta-button">
+                <i class="fas fa-rocket"></i> Explorar Projetos
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ESTATÍSTICAS
+    ============================================ -->
+    <section class="section stats-section">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number" id="stat-projetos">0</span>
+                <span class="stat-label">
+                    <i class="fas fa-folder-open"></i> Projetos Cadastrados
+                </span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="stat-investidores">0</span>
+                <span class="stat-label">
+                    <i class="fas fa-hand-holding-usd"></i> Investidores Ativos
+                </span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="stat-empresas">0</span>
+                <span class="stat-label">
+                    <i class="fas fa-building"></i> Empresas Parceiras
+                </span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="stat-parcerias">0</span>
+                <span class="stat-label">
+                    <i class="fas fa-handshake"></i> Parcerias Realizadas
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ODS 9 SECTION
+    ============================================ -->
+    <section class="section ods-section">
+        <h2 class="section-title">Alinhado à ODS 9 da ONU</h2>
+        <p class="section-subtitle">Indústria, Inovação e Infraestrutura</p>
+        
+        <div class="ods-content">
+            <div class="ods-info">
+                <h3>
+                    <i class="fas fa-bullseye"></i> 
+                    Objetivo de Desenvolvimento Sustentável 9
+                </h3>
+                <p>
+                    A ODS 9 visa construir infraestruturas resilientes, promover a industrialização 
+                    inclusiva e sustentável e fomentar a inovação. Nossa plataforma conecta 
+                    diretamente com a <strong>Meta 9.5</strong>:
+                </p>
+                <blockquote style="border-left: 4px solid var(--sustainable-green); padding-left: 1rem; margin: 1rem 0; font-style: italic;">
+                    "Aumentar a pesquisa científica e melhorar as capacidades tecnológicas 
+                    de países em desenvolvimento, incentivando a inovação."
+                </blockquote>
+                <p>
+                    O InovaConnect facilita essa conexão entre academia e mercado, 
+                    permitindo que pesquisas acadêmicas se transformem em soluções 
+                    práticas para a sociedade.
+                </p>
+                <div class="ods-badge">
+                    <span class="ods-icon">
+                        <i class="fas fa-globe"></i>
+                    </span>
+                    <span>Contribuindo para um futuro sustentável</span>
+                </div>
+            </div>
+            
+            <div class="ods-visual" style="text-align: center;">
+                <div style="background: linear-gradient(135deg, var(--primary-blue), var(--sustainable-green)); 
+                            width: 200px; height: 200px; border-radius: 50%; 
+                            display: flex; align-items: center; justify-content: center; 
+                            margin: 0 auto; color: white; font-size: 4rem; font-weight: 700;
+                            box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                    9
+                </div>
+                <p style="margin-top: 1rem; color: var(--medium-gray);">
+                    <i class="fas fa-industry"></i> Indústria, Inovação e Infraestrutura
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PROJETOS EM DESTAQUE
+    ============================================ -->
+    <section class="section">
+        <h2 class="section-title">Projetos em Destaque</h2>
+        <p class="section-subtitle">Conheça algumas das inovações acadêmicas cadastradas em nossa plataforma</p>
+        
+        <div class="cards-grid" id="projetos-destaque">
+            <!-- Cards serão inseridos via JavaScript -->
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="projetos.html" class="cta-button" style="background-color: var(--primary-blue);">
+                <i class="fas fa-th-large"></i> Ver Todos os Projetos
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================
+         COMO FUNCIONA
+    ============================================ -->
+    <section class="section" style="background-color: var(--white);">
+        <h2 class="section-title">Como Funciona</h2>
+        <p class="section-subtitle">Conecte-se em 3 passos simples</p>
+        
+        <div class="cards-grid">
+            <div class="card" style="text-align: center; border-left-color: var(--sustainable-green);">
+                <div style="font-size: 3rem; color: var(--sustainable-green); margin-bottom: 1rem;">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <h3 style="margin-bottom: 1rem;">1. Cadastre-se</h3>
+                <p style="color: var(--medium-gray);">
+                    Seja como estudante, investidor ou empresa. Crie seu perfil 
+                    e comece a fazer parte da comunidade de inovação.
+                </p>
+            </div>
+            
+            <div class="card" style="text-align: center; border-left-color: var(--secondary-blue);">
+                <div style="font-size: 3rem; color: var(--secondary-blue); margin-bottom: 1rem;">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3 style="margin-bottom: 1rem;">2. Explore Projetos</h3>
+                <p style="color: var(--medium-gray);">
+                    Navegue por projetos de pesquisa e startups acadêmicas 
+                    que combinam com seus interesses e objetivos.
+                </p>
+            </div>
+            
+            <div class="card" style="text-align: center; border-left-color: var(--primary-blue);">
+                <div style="font-size: 3rem; color: var(--primary-blue); margin-bottom: 1rem;">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3 style="margin-bottom: 1rem;">3. Conecte-se</h3>
+                <p style="color: var(--medium-gray);">
+                    Entre em contato com os autores, invista em projetos 
+                    ou estabeleça parcerias para desenvolver inovações.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+    ============================================ -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>
+                    <i class="fas fa-lightbulb"></i> InovaConnect
+                </h4>
+                <p>
+                    Portal de Inovação Acadêmica que conecta ideias, 
+                    pessoas e oportunidades para transformar pesquisa em impacto real.
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>
+                    <i class="fas fa-link"></i> Links Rápidos
+                </h4>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="dashboard.html">Dashboard</a></p>
+                <p><a href="projetos.html">Projetos</a></p>
+                <p><a href="sobre.html">Sobre</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>
+                    <i class="fas fa-bullseye"></i> ODS 9
+                </h4>
+                <p>
+                    Alinhado ao Objetivo de Desenvolvimento Sustentável 9:
+                    Indústria, Inovação e Infraestrutura.
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>
+                    <i class="fas fa-users"></i> Equipe
+                </h4>
+                <p>Projeto acadêmico de Engenharia de Software</p>
+                <div class="authors">
+                    <div class="author-badge">
+                        <i class="fas fa-user-graduate"></i>
+                        <span>Arthur Morales</span>
+                    </div>
+                    <div class="author-badge">
+                        <i class="fas fa-user-graduate"></i>
+                        <span>Barbarha Monteiro</span>
+                    </div>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">
+                    <i class="fas fa-university"></i> 3º Semestre
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 InovaConnect. Todos os direitos reservados.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+                <i class="fas fa-code"></i> Desenvolvido com HTML5, CSS3 e JavaScript Puro
+            </p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         SCRIPTS
+    ============================================ -->
+    <script src="js/classes.js"></script>
+    <script src="js/estruturas.js"></script>
+    <script src="js/dados.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Script específico para página inicial
+        document.addEventListener('DOMContentLoaded', () => {
+            // Renderizar projetos em destaque na home
+            const container = document.getElementById('projetos-destaque');
+            if (container && window.projetos && window.projetos.length > 0) {
+                // Pegar 3 projetos aleatórios para destaque
+                const destaque = window.projetos.slice(0, 3);
+                
+                const { Dashboard } = window.Classes;
+                const dashboardTemp = new Dashboard(destaque);
+                
+                container.innerHTML = destaque.map(projeto => 
+                    dashboardTemp.criarCardProjeto(projeto)
+                ).join('');
+            }
+        });
+    </script>
+</body>
+</html>
