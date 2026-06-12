@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sobre o InovaConnect - Projeto acadêmico de Engenharia de Software">
+    <meta name="authors" content="Arthur Morales, Barbarha Monteiro">
+    
+    <title>Sobre - InovaConnect</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* Estilos específicos da página Sobre */
+        .main-content {
+            padding-top: 6rem;
+            min-height: 100vh;
+        }
+        
+        .sobre-section {
+            background: var(--white);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+        
+        .sobre-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .sobre-title {
+            font-size: 1.75rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--light-gray);
+        }
+        
+        .sobre-content {
+            line-height: 1.8;
+            color: var(--medium-gray);
+        }
+        
+        .sobre-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .sobre-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .sobre-content ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .sobre-content ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--sustainable-green);
+            font-weight: 700;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #e0e7ff, #dbeafe);
+            border-left: 4px solid var(--primary-blue);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .highlight-box p {
+            margin: 0;
+            color: var(--dark-gray);
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .tech-card {
+            background: var(--light-gray);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .tech-card:hover {
+            background: var(--secondary-blue);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        
+        .tech-card i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .tech-card span {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .team-card {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--light-gray), #e0e7ff);
+            border-radius: 1rem;
+            transition: var(--transition);
+        }
+        
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .team-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--white);
+            font-size: 2.5rem;
+        }
+        
+        .team-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-bottom: 0.25rem;
+        }
+        
+        .team-role {
+            color: var(--medium-gray);
+            font-size: 0.9rem;
+        }
+        
+        .ods-goal-card {
+            background: linear-gradient(135deg, var(--primary-blue), var(--sustainable-green));
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .ods-goal-number {
+            font-size: 4rem;
+            font-weight: 700;
+            display: block;
+        }
+        
+        .ods-goal-title {
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .code-block {
+            background: var(--dark-gray);
+            color: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            margin: 1rem 0;
+        }
+        
+        .code-block .comment {
+            color: #94a3b8;
+        }
+        
+        .code-block .keyword {
+            color: #c084fc;
+        }
+        
+        .code-block .string {
+            color: #86efac;
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================
+         HEADER
+    ============================================ -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </span>
+                <span>InovaConnect</span>
+            </a>
+            
+            <button class="menu-toggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="projetos.html">Projetos</a></li>
+                    <li><a href="sobre.html" class="active">Sobre</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================
+         CONTEÚDO PRINCIPAL
+    ============================================ -->
+    <main class="main-content">
+        <section class="section">
+            <!-- Header da Página -->
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h1 style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 0.5rem;">
+                    <i class="fas fa-info-circle"></i> Sobre o Projeto
+                </h1>
+                <p style="color: var(--medium-gray); max-width: 600px; margin: 0 auto;">
+                    Conheça o InovaConnect, um projeto acadêmico que demonstra 
+                    conceitos de Engenharia de Software aplicados.
+                </p>
+            </div>
+            
+            <!-- Seção 1: Resumo do Projeto -->
+            <div class="sobre-section">
+                <h2 class="sobre-title">
+                    <i class="fas fa-clipboard-list"></i>
+                    Resumo do Projeto
+                </h2>
+                <div class="sobre-content">
+                    <p>
+                        O <strong>InovaConnect</strong> é um portal de inovação acadêmica desenvolvido 
+                        como projeto da disciplina de Engenharia de Software. A plataforma tem como 
+                        objetivo conectar startups acadêmicas, projetos de pesquisa, investidores e 
+                        empresas, facilitando a transformação de ideias em soluções reais.
+                    </p>
+                    
+                    <div class="highlight-box">
+                        <p>
+                            <i class="fas fa-bullseye"></i>
+                            <strong>Proposta de Valor:</strong> Reduzir a distância entre a pesquisa 
+                            acadêmica e o mercado, criando um ecossistema de inovação colaborativo 
+                            que beneficia estudantes, investidores e a sociedade.
+                        </p>
+                    </div>
+                    
+                    <p>
+                        O projeto está alinhado com o <strong>Objetivo de Desenvolvimento Sustentável 9 
+                        (ODS 9)</strong> da ONU, que visa promover a industrialização inclusiva e 
+                        sustentável e fomentar a inovação.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Seção 2: ODS 9 -->
+            <div class="sobre-section">
+                <h2 class="sobre-title">
+                    <i class="fas fa-globe"></i>
+                    Alinhamento com ODS 9
+                </h2>
+                <div class="sobre-content">
+                    <div class="ods-goal-card">
+                        <span class="ods-goal-number">9</span>
+                        <span class="ods-goal-title">Indústria, Inovação e Infraestrutura</span>
+                    </div>
+                    
+                    <p>
+                        Os Objetivos de Desenvolvimento Sustentável (ODS) são uma chamada universal 
+                        para ação que visa acabar com a pobreza, proteger o planeta e garantir que 
+                        todas as pessoas desfrutem de paz e prosperidade.
+                    </p>
+                    
+                    <h3 style="color: var(--primary-blue); margin-top: 1.5rem;">
+                        <i class="fas fa-target"></i> Meta 9.5
+                    </h3>
+                    <p>
+                        Nossa plataforma contribui diretamente para a Meta 9.5:
+                    </p>
+                    
+                    <div class="highlight-box" style="background: linear-gradient(135deg, #fef3c7, #fde68a); border-left-color: #f59e0b;">
+                        <p>
+                            <i class="fas fa-quote-left"></i>
+                            "Aumentar a pesquisa científica e melhorar as capacidades tecnológicas 
+                            de países em desenvolvimento, incentivando a inovação."
+                        </p>
+                    </div>
+                    
+                    <p>
+                        O InovaConnect facilita essa conexão ao:
+                    </p>
+                    <ul>
+                        <li>Centralizar projetos de pesquisa acadêmica em uma plataforma acessível</li>
+                        <li>Conectar pesquisadores com potenciais investidores e parceiros</li>
+                        <li>Promover a visibilidade de inovações desenvolvidas em universidades</li>
+                        <li>Fomentar parcerias entre academia e indústria</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Seção 3: Metodologia -->
+            <div class="sobre-section">
+                <h2 class="sobre-title">
+                    <i class="fas fa-cogs"></i>
+                    Metodologia e Tecnologias
+                </h2>
+                <div class="sobre-content">
+                    <p>
+                        O projeto foi desenvolvido utilizando conceitos fundamentais de Engenharia 
+                        de Software, com foco em boas práticas e código limpo.
+                    </p>
+                    
+                    <h3 style="color: var(--primary-blue); margin-top: 1.5rem;">
+                        <i class="fas fa-object-group"></i> Programação Orientada a Objetos (POO)
+                    </h3>
+                    <p>
+                        Implementamos os principais conceitos de POO em JavaScript ES6+:
+                    </p>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <i class="fas fa-box"></i>
+                            <span>Classes</span>
+                        </div>
+                        <div class="tech-card">
+                            <i class="fas fa-sitemap"></i>
+                            <span>Herança</span>
+                        </div>
+                        <div class="tech-card">
+                            <i class="fas fa-lock"></i>
+                            <span>Encapsulamento</span>
+                        </div>
+                        <div class="tech-card">
+                            <i class="fas fa-code-branch"></i>
+                            <span>Polimorfismo</span>
+                        </div>
+                    </div>
+                    
+                    <div class="code-block">
+                        <span class="comment">// Exemplo de classe com herança</span><br>
+                        <span class="keyword">class</span> Estudante <span class="keyword">extends</span> Usuario {<br>
+                        &nbsp;&nbsp;<span class="keyword">constructor</span>(id, nome, email, curso) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">super</span>(id, nome, email, <span class="string">'estudante'</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">this</span>.curso = curso;<br>
+                        &nbsp;&nbsp;}<br>
+                        }
+                    </div>
+                    
+                    <h3 style="color: var(--primary-blue); margin-top: 1.5rem;">
+                        <i class="fas fa-project-diagram"></i> Estruturas de Dados
+                    </h3>
+                    <p>
+                        Implementamos três estruturas de dados fundamentais:
+                    </p>
+                    
+                    <ul>
+                        <li>
+                            <strong>FILA (Queue - FIFO):</strong> Utilizada para gerenciar projetos 
+                            que aguardam aprovação. O primeiro projeto a entrar na fila é o primeiro 
+                            a ser processado.
+                        </li>
+                        <li>
+                            <strong>PILHA (Stack - LIFO):</strong> Utilizada para o histórico de 
+                            visualizações de projetos. O último projeto visualizado é o primeiro 
+                            a ser recuperado.
+                        </li>
+                        <li>
+                            <strong>LISTA ENCADEADA:</strong> Utilizada para organizar as categorias 
+                            de projetos de forma dinâmica.
+                        </li>
+                    </ul>
+                    
+                    <div class="code-block">
+                        <span class="comment">// Exemplo de operação em FILA</span><br>
+                        <span class="keyword">const</span> fila = <span class="keyword">new</span> Fila();<br>
+                        fila.enqueue(projeto); <span class="comment">// Adiciona ao final</span><br>
+                        <span class="keyword">const</span> proximo = fila.dequeue(); <span class="comment">// Remove do início</span>
+                    </div>
+                    
+                    <h3 style="color: var(--primary-blue); margin-top: 1.5rem;">
+                        <i class="fas fa-layer-group"></i> Stack Tecnológico
+                    </h3>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <i class="fab fa-html5" style="color: #e34f26;"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="tech-card">
+                            <i class="fab fa-css3-alt" style="color: #1572b6;"></i>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="tech-card">
+                            <i class="fab fa-js" style="color: #f7df1e;"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="tech-card">
+                            <i class="fas fa-database" style="color: var(--sustainable-green);"></i>
+                            <span>LocalStorage</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Seção 4: Equipe -->
+            <div class="sobre-section">
+                <h2 class="sobre-title">
+                    <i class="fas fa-users"></i>
+                    Equipe Desenvolvedora
+                </h2>
+                <div class="sobre-content">
+                    <p>
+                        Este projeto foi desenvolvido por alunos do 3º semestre do curso de 
+                        Engenharia de Software, como parte das atividades da disciplina.
+                    </p>
+                    
+                    <div class="team-grid">
+                        <div class="team-card">
+                            <div class="team-avatar">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="team-name">Arthur Morales</div>
+                            <div class="team-role">Desenvolvedor Full Stack</div>
+                            <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--medium-gray);">
+                                <i class="fas fa-university"></i> Engenharia de Software<br>
+                                <i class="fas fa-graduation-cap"></i> 3º Semestre
+                            </p>
+                        </div>
+                        
+                        <div class="team-card">
+                            <div class="team-avatar">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="team-name">Barbarha Monteiro</div>
+                            <div class="team-role">Desenvolvedora Full Stack</div>
+                            <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--medium-gray);">
+                                <i class="fas fa-university"></i> Engenharia de Software<br>
+                                <i class="fas fa-graduation-cap"></i> 3º Semestre
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Seção 5: Informações Acadêmicas -->
+            <div class="sobre-section">
+                <h2 class="sobre-title">
+                    <i class="fas fa-book"></i>
+                    Informações Acadêmicas
+                </h2>
+                <div class="sobre-content">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                        <div style="background: var(--light-gray); padding: 1rem; border-radius: 0.5rem;">
+                            <strong><i class="fas fa-chalkboard-teacher"></i> Disciplina:</strong>
+                            <p>Engenharia de Software</p>
+                        </div>
+                        <div style="background: var(--light-gray); padding: 1rem; border-radius: 0.5rem;">
+                            <strong><i class="fas fa-layer-group"></i> Semestre:</strong>
+                            <p>3º Semestre</p>
+                        </div>
+                        <div style="background: var(--light-gray); padding: 1rem; border-radius: 0.5rem;">
+                            <strong><i class="fas fa-calendar"></i> Ano:</strong>
+                            <p>2026</p>
+                        </div>
+                        <div style="background: var(--light-gray); padding: 1rem; border-radius: 0.5rem;">
+                            <strong><i class="fas fa-code"></i> Linguagem:</strong>
+                            <p>JavaScript Vanilla</p>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-box" style="margin-top: 1.5rem;">
+                        <p>
+                            <i class="fas fa-lightbulb"></i>
+                            <strong>Objetivo Educacional:</strong> Este projeto visa demonstrar 
+                            a aplicação prática de conceitos de Programação Orientada a Objetos 
+                            e Estruturas de Dados em um contexto real de desenvolvimento web.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================
+         FOOTER
+    ============================================ -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4><i class="fas fa-lightbulb"></i> InovaConnect</h4>
+                <p>Portal de Inovação Acadêmica</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4><i class="fas fa-code"></i> Tecnologias</h4>
+                <p>HTML5, CSS3, JavaScript Puro</p>
+                <p>POO & Estruturas de Dados</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4><i class="fas fa-users"></i> Autores</h4>
+                <div class="authors">
+                    <div class="author-badge">
+                        <i class="fas fa-user-graduate"></i> Arthur Morales
+                    </div>
+                    <div class="author-badge">
+                        <i class="fas fa-user-graduate"></i> Barbarha Monteiro
+                    </div>
+                </div>
+                <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+                    <i class="fas fa-university"></i> Engenharia de Software - 3º Semestre
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 InovaConnect. Projeto Acadêmico.</p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         SCRIPTS
+    ============================================ -->
+    <script src="js/classes.js"></script>
+    <script src="js/estruturas.js"></script>
+    <script src="js/dados.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Script específico da página Sobre
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animação de fade-in nas seções ao fazer scroll
+            const sections = document.querySelectorAll('.sobre-section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
